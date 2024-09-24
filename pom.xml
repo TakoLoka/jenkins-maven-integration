@@ -12,6 +12,7 @@
         <cucumber.version>7.15.0</cucumber.version>
         <selenium.version>4.16.1</selenium.version>
         <testng.version>7.10.0</testng.version>
+        <restassured.version>5.4.0</restassured.version>
         <maven.compiler.plugin.version>3.12.1</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>3.2.3</maven.surefire.plugin.version>
         <maven.compiler.source.version>11</maven.compiler.source.version>
@@ -38,6 +39,12 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${restassured.version}</version>
         </dependency>
 
         <!-- TestNG -->

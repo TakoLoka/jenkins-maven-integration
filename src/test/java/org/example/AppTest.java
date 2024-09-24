@@ -1,12 +1,16 @@
 package org.example;
 
 import Pages.HeaderPage;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+
+import static org.hamcrest.Matchers.equalTo;
 
 /**
  * Unit test for simple App.
@@ -28,5 +32,12 @@ public class AppTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(webDriver -> webDriver.getCurrentUrl().contains("myclass"));
         driver.quit();
+    }
+
+    @Test
+    public void secondTest(){
+        Response response = RestAssured.when().get("https://api.coindesk.com/v1/bpi/currentPrice.json");
+        response.then().statusCode(200);
+        response.then().body("chartName", equalTo("Bitcoin"));
     }
 }
